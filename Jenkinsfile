@@ -13,5 +13,16 @@ pipeline {
                   checkout([$class: 'GitSCM', branches: [[name: "*/${params.BRANCH}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git-credentials', url: 'git@github.com:allyo-org/QA_JobReqAutomation.git']]])
               }
           }
+          /*stage("maven") {
+              steps {
+                  script {
+                      withMaven(maven: "mavenTool")
+                              {
+                                  sh(script: """mvn clean package""")
+                              }
+                  }
+              }
+          }*/
       }
+
 }
