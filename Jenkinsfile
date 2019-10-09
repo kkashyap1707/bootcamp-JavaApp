@@ -10,7 +10,7 @@ pipeline {
           stage('Checkout') {
               steps {
                   deleteDir()
-                  checkout([$class: 'GitSCM', branches: [[name: "*/${params.BRANCH}"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git-credentials', url: 'git@github.com:allyo-org/QA_JobReqAutomation.git']]])
+                  checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '7bcd6522-500e-42da-bc10-4d0ae79c2067', url: 'git@github.com:kkashyap1707/bootcamp-JavaApp.git']]]
               }
           }
           /*stage("maven") {
